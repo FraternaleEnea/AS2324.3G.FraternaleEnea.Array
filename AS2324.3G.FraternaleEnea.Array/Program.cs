@@ -6,6 +6,7 @@
         {
             Console.WriteLine("inserisci quante persone siete");
             int dim=int.Parse(Console.ReadLine());
+            int scelta;
             double[] pesi= new double[dim];
             int[] eta=new int[dim];
             double media = 0;
@@ -14,6 +15,38 @@
             CaricaVettori(ref pesi, ref eta);
             Statistiche(ref pesi, ref media, ref min, ref max);
             Ordina(ref pesi, ref eta);
+            Console.WriteLine("\ninserisce la propria scelta");
+            do
+            {
+                Console.WriteLine("inserire 1 se si vuole vedere il peso minimo,il massimo e la media di tutti i pesi");
+                Console.WriteLine("inserire 2 se vuoi ordinare i pesi e l'eta delle persone ");
+                Console.WriteLine("inserire 9 se si vuole uscire dal menu");
+                scelta = int.Parse(Console.ReadLine());
+                switch (scelta)
+                {
+
+                    case 1:
+                        
+                        Console.WriteLine($"\nil peso più piccolo è {min}, il più grande è {max} e la media di turri i pesi è {media}");
+
+                        break;
+
+                    case 2:
+                        
+                        for (int i = 0; i < pesi.Length; i++)
+                        {
+                            Console.WriteLine($"la persona {i} pesa {pesi[i]} KG");  
+                        }
+                        Console.WriteLine("\n");
+                        for (int i = 0; i < eta.Length; i++)
+                        {
+                            Console.WriteLine($"la persona {i} ha {eta[i]} anni");
+                        }
+                        Console.WriteLine("\n");
+                        break; 
+                }
+            } while (scelta != 9);
+            Console.WriteLine("arrivederci");
 
         }
         static void CaricaVettori(ref double[] pesi, ref int[] eta)
