@@ -13,6 +13,7 @@
             double max = 0;
             CaricaVettori(ref pesi, ref eta);
             Statistiche(ref pesi, ref media, ref min, ref max);
+            Ordina(ref pesi, ref eta);
 
         }
         static void CaricaVettori(ref double[] pesi, ref int[] eta)
@@ -42,6 +43,29 @@
                 somma += pesi[i];
             }
             media = somma / pesi.Length;
+        }
+        static void Ordina(ref double[] pesi, ref int[] eta)
+        {
+            int tempEta;
+            double tempPesi;
+            for (int i = 0;i < eta.Length-1; i++)
+            {
+                for(int j = 0; j < eta.Length-i-1; j++)
+                {
+                    if (eta[j] > eta[j + 1])
+                    {
+                        tempEta = eta[j];
+                        eta[j] = eta[j + 1];
+                        eta[j + 1] = tempEta;
+                    }
+                    if (eta[j] > eta[j + 1])
+                    {
+                        tempPesi = pesi[j];
+                        pesi[j] = pesi[j + 1];
+                        pesi[j + 1] = tempPesi;
+                    }
+                }
+            }
         }
     }
 }
