@@ -51,8 +51,11 @@
 
                     case 3:
 
-                        //TODO frequenza dei pesi
-                        
+                        for (int i = 0; i < pesiDistinti.Length; i++)
+                        {
+                            Console.WriteLine($"il peso distinto è {pesiDistinti[i]} e si ripete per {frequenze[i]} volte");
+                        }
+
                         break;
                 }
             } while (scelta != 9);
